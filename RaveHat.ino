@@ -57,6 +57,7 @@ void setup() {
   // Update LED contents, to start they are all 'off'
   strip.show();
   attachInterrupt(0, buttonPress, RISING);
+  randomSeed(NULL);
 }
 
 void buttonPress()
@@ -67,6 +68,7 @@ void buttonPress()
 
 void loop() {
   // Some example procedures showing how to display to the pixels
+  /* Commented out for quicker development
   while(pressed==0){
     colorWipe(Color(255, 0, 0), 50);
   }
@@ -87,6 +89,82 @@ void loop() {
     rainbowCycle(20);
   }
   pressed = 0;
+  */
+  //rainbowCycle(10);  //10 produces a goos speed
+  rastaParty(750);
+  //purpleAndGreenRandom(250);
+  //purpleAndGreenAlternate(250);
+}
+
+void purpleAndGreenAlternate(int wait)
+{
+  int i;
+  for(i=0;i<strip.numPixels();i++){
+  if(i%2)
+  {
+    strip.setPixelColor(i,0,255,0);
+  }
+  else
+  {
+    strip.setPixelColor(i,255,0,255);
+  }
+}
+  strip.show();
+  delay(wait);
+    for(i=0;i<strip.numPixels();i++){
+  if(i%2)
+  {
+    strip.setPixelColor(i,255,0,255);
+  }
+  else
+  {
+    strip.setPixelColor(i,0,255,0);
+  }
+}
+  strip.show();
+  delay(wait);
+}
+
+void purpleAndGreenRandom(int wait)
+{
+  int i;
+  int randNum;
+  for(i=0;i<strip.numPixels();i++){
+  randNum = random(2);
+  if(randNum == 0)
+  {
+    strip.setPixelColor(i,0,255,0);
+  }
+  else
+  {
+    strip.setPixelColor(i,255,0,255);
+  }
+}
+  strip.show();
+  delay(wait);
+}
+
+void rastaParty(int wait)
+{
+ int i;
+ int randNum;
+for(i=0;i<strip.numPixels();i++){
+  randNum = random(3);
+  if(randNum == 0)
+  {
+    strip.setPixelColor(i,255,255,0);
+  }
+  else if(randNum == 1)
+  {
+    strip.setPixelColor(i,255,0,0);
+  }
+  else
+  {
+    strip.setPixelColor(i,0,255,0);
+  }
+}
+  strip.show();
+  delay(wait);
 }
 
 void rainbow(uint8_t wait) {
