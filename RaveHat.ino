@@ -68,30 +68,22 @@ void buttonPress()
 
 void loop() {
   // Some example procedures showing how to display to the pixels
-  /* Commented out for quicker development
+  //Commented out for quicker development
   while(pressed==0){
-    colorWipe(Color(255, 0, 0), 50);
+    rastaParty(750);
   }
   pressed = 0;
   while(pressed==0){
-    colorWipe(Color(0, 255, 0), 50);
+    rainbowCycle(10);
   }
   pressed = 0;
   while(pressed==0){
-    colorWipe(Color(0, 0, 255), 50);
+    purpleAndGreenRandom(250);
   }
   pressed = 0;
-  while(pressed==0){
-    rainbow(20);
-  }
-  pressed = 0;
-  while(pressed==0){
-    rainbowCycle(20);
-  }
-  pressed = 0;
-  */
-  //rainbowCycle(10);  //10 produces a goos speed
-  rastaParty(750);
+
+  //rainbowCycle(10);  //10 produces a good speed
+  //rastaParty(750);
   //purpleAndGreenRandom(250);
   //purpleAndGreenAlternate(250);
 }
